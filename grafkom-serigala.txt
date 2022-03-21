@@ -1,0 +1,401 @@
+Source Code :
+ 
+#include <GL/glut.h> 
+#include <math.h> 
+
+typedef struct
+{
+	float r;
+	float g;
+	float b;
+} color_t;
+
+typedef struct
+{
+	float x, y;
+} Point2D_t;
+
+void setColor(color_t col)
+{
+	glColor3f(col.r, col.g, col.b);
+}
+
+void drawPolyline(Point2D_t pnt[], int n)
+{
+	int i;
+	glBegin(GL_LINE_LOOP);
+	for (i = 0; i < n; i++) {
+		glVertex2f(pnt[i].x, pnt[i].y);
+	}
+	glEnd();
+}
+
+void fillPolygon(Point2D_t pnt[], int n, color_t color)
+{
+	int i;
+	setColor(color);
+	glBegin(GL_POLYGON);
+	for (i = 0; i < n; i++) {
+		glVertex2f(pnt[i].x, pnt[i].y);
+	}
+	glEnd();
+}
+
+void userdraw() {
+	color_t abu2 = { 0.21,0.27,0.30 };
+	color_t abu3 = { 0.27,0.35,0.39 };
+	color_t abu5 = { 0.37,0.49,0.54 };
+	color_t abu6 = { 0.47,0.56,0.61 };
+	color_t abu7 = { 0.56,0.64,0.68 };
+	color_t abu8 = { 0.69,0.74,0.77 };
+	color_t abu9 = { 0.81,0.84,0.86 };
+	color_t abu10 = { 0.92,0.93,0.94 };
+	color_t putih = { 1,1,1 };
+	color_t hitam = { 0,0,0 };
+
+	Point2D_t telinga1[3] = { {-55,170},{-125,190},{-100,230} };
+	setColor(abu3);
+	fillPolygon(telinga1, 3, abu3);
+	setColor(putih);
+	drawPolyline(telinga1, 3);
+
+	Point2D_t telinga47[3] = { {55,170},{125,190},{100,230} };
+	setColor(abu3);
+	fillPolygon(telinga47, 3, abu3);
+	setColor(putih);
+	drawPolyline(telinga47, 3);
+
+	Point2D_t telinga2[6] = { {-125,190},{-128,160},{-105,135},{-65,145},{-52,165},{-55,170} };
+	setColor(abu5);
+	fillPolygon(telinga2, 6, abu5);
+	setColor(putih);
+	drawPolyline(telinga2, 6);
+
+	Point2D_t telinga44[6] = { {125,190},{128,160},{105,135},{65,145},{52,165},{55,170} };
+	setColor(abu5);
+	fillPolygon(telinga44, 6, abu5);
+	setColor(putih);
+	drawPolyline(telinga44, 6);
+
+	Point2D_t telinga3[3] = { {-65,145},{-45,150},{-52,165} };
+	setColor(abu6);
+	fillPolygon(telinga3, 3, abu6);
+	setColor(putih);
+	drawPolyline(telinga3, 3);
+
+	Point2D_t telinga45[3] = { {65,145},{45,150},{52,165} };
+	setColor(abu6);
+	fillPolygon(telinga45, 3, abu6);
+	setColor(putih);
+	drawPolyline(telinga45, 3);
+
+	Point2D_t telinga4[4] = { {-45,150},{-40,160},{-55,170},{-52,165} };
+	setColor(abu2);
+	fillPolygon(telinga4, 4, abu2);
+	setColor(putih);
+	drawPolyline(telinga4, 4);
+
+	Point2D_t telinga46[4] = { {45,150},{40,160},{55,170},{52,165} };
+	setColor(abu2);
+	fillPolygon(telinga46, 4, abu2);
+	setColor(putih);
+	drawPolyline(telinga46, 4);
+
+	Point2D_t wajah5[4] = { {-40,160},{0,170},{40,160},{0,150} };
+	setColor(abu3);
+	fillPolygon(wajah5, 4, abu3);
+	setColor(putih);
+	drawPolyline(wajah5, 4);
+
+	Point2D_t wajah6[5] = { {-40,160},{-45,150},{-15,120},{0,130},{0,150} };
+	setColor(abu8);
+	fillPolygon(wajah6, 5, abu8);
+	setColor(putih);
+	drawPolyline(wajah6, 5);
+
+	Point2D_t wajah6_2[5] = { {40,160},{45,150},{15,120},{0,130},{0,150} };
+	setColor(abu8);
+	fillPolygon(wajah6_2, 5, abu8);
+	setColor(putih);
+	drawPolyline(wajah6_2, 5);
+
+	Point2D_t wajah7[5] = { {-105,135},{-115,75},{-100,95},{-85,120},{-65,145} };
+	setColor(abu6);
+	fillPolygon(wajah7, 5, abu6);
+	setColor(putih);
+	drawPolyline(wajah7, 5);
+
+	Point2D_t wajah43[5] = { {105,135},{115,75},{100,95},{85,120},{65,145} };
+	setColor(abu6);
+	fillPolygon(wajah43, 5, abu6);
+	setColor(putih);
+	drawPolyline(wajah43, 5);
+
+	Point2D_t wajah8[5] = { {-45,150},{-65,145},{-85,120},{-25,90},{-15,120} };
+	setColor(abu9);
+	fillPolygon(wajah8, 5, abu9);
+	setColor(putih);
+	drawPolyline(wajah8, 5);
+
+	Point2D_t wajah42[5] = { {45,150},{65,145},{85,120},{25,90},{15,120} };
+	setColor(abu9);
+	fillPolygon(wajah42, 5, abu9);
+	setColor(putih);
+	drawPolyline(wajah42, 5);
+
+	Point2D_t wajah9[8] = { {-15,120},{-25,90},{-10,50},{0,40},{10,50},{25,90},{15,120},{0,130} };
+	setColor(abu7);
+	fillPolygon(wajah9, 8, abu7);
+	setColor(putih);
+	drawPolyline(wajah9, 8);
+
+	Point2D_t wajah10[7] = { {-85,120},{-100,95},{-85,55},{-65,80},{-40,90},{-30,75},{-25,90} };
+	setColor(abu10);
+	fillPolygon(wajah10, 7, abu10);
+	setColor(putih);
+	drawPolyline(wajah10, 7);
+
+	Point2D_t wajah38[7] = { {85,120},{100,95},{85,55},{65,80},{40,90},{30,75},{25,90} };
+	setColor(abu10);
+	fillPolygon(wajah38, 7, abu10);
+	setColor(putih);
+	drawPolyline(wajah38, 7);
+
+	Point2D_t mata1[3] = { {-65,80},{-30,75},{-40,90} };
+	setColor(hitam);
+	fillPolygon(mata1, 3, hitam);
+	setColor(hitam);
+	drawPolyline(mata1, 3);
+
+	Point2D_t mata41[3] = { {65,80},{30,75},{40,90} };
+	setColor(hitam);
+	fillPolygon(mata41, 3, hitam);
+	setColor(hitam);
+	drawPolyline(mata41, 3);
+
+	Point2D_t wajah12[4] = { {-65,80},{-52,65},{-25,60},{-30,75} };
+	setColor(abu10);
+	fillPolygon(wajah12, 4, abu10);
+	setColor(putih);
+	drawPolyline(wajah12, 4);
+
+	Point2D_t wajah40[4] = { {65,80},{52,65},{25,60},{30,75} };
+	setColor(abu10);
+	fillPolygon(wajah40, 4, abu10);
+	setColor(putih);
+	drawPolyline(wajah40, 4);
+
+	Point2D_t wajah13[4] = { {-30,75},{-25,60},{-10,50},{-25,90} };
+	setColor(abu9);
+	fillPolygon(wajah13, 4, abu9);
+	setColor(putih);
+	drawPolyline(wajah13, 4);
+
+	Point2D_t wajah41[4] = { {30,75},{25,60},{10,50},{25,90} };
+	setColor(abu9);
+	fillPolygon(wajah41, 4, abu9);
+	setColor(putih);
+	drawPolyline(wajah41, 4);
+
+	Point2D_t wajah14[6] = { {-100,95},{-115,75},{-112,70},{-110,45},{-105,20},{-85,55} };
+	setColor(abu5);
+	fillPolygon(wajah14, 6, abu5);
+	setColor(putih);
+	drawPolyline(wajah14, 6);
+
+	Point2D_t wajah34[6] = { {100,95},{115,75},{112,70},{110,45},{105,20},{85,55} };
+	setColor(abu5);
+	fillPolygon(wajah34, 6, abu5);
+	setColor(putih);
+	drawPolyline(wajah34, 6);
+
+	Point2D_t wajah15[4] = { {-65,80},{-52,65},{-70,40},{-85,55} };
+	setColor(abu9);
+	fillPolygon(wajah15, 4, abu9);
+	setColor(putih);
+	drawPolyline(wajah15, 4);
+
+	Point2D_t wajah15_2[4] = { {-52,65},{-25,60},{-42,25},{-70,40} };
+	setColor(abu9);
+	fillPolygon(wajah15_2, 4, abu9);
+	setColor(putih);
+	drawPolyline(wajah15_2, 4);
+
+	Point2D_t wajah37[4] = { {65,80},{52,65},{70,40},{85,55} };
+	setColor(abu9);
+	fillPolygon(wajah37, 4, abu9);
+	setColor(putih);
+	drawPolyline(wajah37, 4);
+
+	Point2D_t wajah37_2[4] = { {52,65},{25,60},{42,25},{70,40} };
+	setColor(abu9);
+	fillPolygon(wajah37_2, 4, abu9);
+	setColor(putih);
+	drawPolyline(wajah37_2, 4);
+
+	Point2D_t hidung16[5] = { {-42,25},{-38,15},{-20,-10},{-10,50},{-25,60} };
+	setColor(abu6);
+	fillPolygon(hidung16, 5, abu6);
+	setColor(putih);
+	drawPolyline(hidung16, 5);
+
+	Point2D_t hidung36[5] = { {42,25},{38,15},{20,-10},{10,50},{25,60} };
+	setColor(abu6);
+	fillPolygon(hidung36, 5, abu6);
+	setColor(putih);
+	drawPolyline(hidung36, 5);
+
+	Point2D_t hidung17[4] = { {-10,50},{-20,-10},{0,-10},{0,40} };
+	setColor(abu8);
+	fillPolygon(hidung17, 4, abu8);
+	setColor(putih);
+	drawPolyline(hidung17, 4);
+
+	Point2D_t hidung17_2[4] = { {10,50},{20,-10},{0,-10},{0,40} };
+	setColor(abu8);
+	fillPolygon(hidung17_2, 4, abu8);
+	setColor(putih);
+	drawPolyline(hidung17_2, 4);
+
+	Point2D_t bulu18[4] = { {-112,70},{-130,10},{-120,10},{-110,45} };
+	setColor(abu9);
+	fillPolygon(bulu18, 4, abu9);
+	setColor(putih);
+	drawPolyline(bulu18, 4);
+
+	Point2D_t bulu35[4] = { {112,70},{130,10},{120,10},{110,45} };
+	setColor(abu9);
+	fillPolygon(bulu35, 4, abu9);
+	setColor(putih);
+	drawPolyline(bulu35, 4);
+
+	Point2D_t bulu19[4] = { {-110,45},{-120,10},{-110,-60},{-105,20} };
+	setColor(abu7);
+	fillPolygon(bulu19, 4, abu7);
+	setColor(putih);
+	drawPolyline(bulu19, 4);
+
+	Point2D_t bulu19_2[4] = { {-105,20},{-80,5},{-105,-60},{-110,-60} };
+	setColor(abu7);
+	fillPolygon(bulu19_2, 4, abu7);
+	setColor(putih);
+	drawPolyline(bulu19_2, 4);
+
+	Point2D_t bulu32[4] = { {110,45},{120,10},{110,-60},{105,20} };
+	setColor(abu7);
+	fillPolygon(bulu32, 4, abu7);
+	setColor(putih);
+	drawPolyline(bulu32, 4);
+
+	Point2D_t bulu32_2[4] = { {105,20},{80,5},{105,-60},{110,-60} };
+	setColor(abu7);
+	fillPolygon(bulu32_2, 4, abu7);
+	setColor(putih);
+	drawPolyline(bulu32_2, 4);
+
+	Point2D_t wajah20[6] = { {-85,55},{-105,20},{-80,5},{-42,-15},{-38,15},{-42,25} };
+	setColor(abu10);
+	fillPolygon(wajah20, 6, abu10);
+	setColor(putih);
+	drawPolyline(wajah20, 6);
+
+	Point2D_t wajah33[6] = { {85,55},{105,20},{80,5},{42,-15},{38,15},{42,25} };
+	setColor(abu10);
+	fillPolygon(wajah33, 6, abu10);
+	setColor(putih);
+	drawPolyline(wajah33, 6);
+
+	Point2D_t hidung21[6] = { {-38,15},{-42,-15},{-45,-25},{-35,-35},{-25,-20},{-20,-10} };
+	setColor(abu5);
+	fillPolygon(hidung21, 6, abu5);
+	setColor(putih);
+	drawPolyline(hidung21, 6);
+
+	Point2D_t hidung30[6] = { {38,15},{42,-15},{45,-25},{35,-35},{25,-20},{20,-10} };
+	setColor(abu5);
+	fillPolygon(hidung30, 6, abu5);
+	setColor(putih);
+	drawPolyline(hidung30, 6);
+
+	Point2D_t hidung23[7] = { {-20,-10},{-25,-20},{-10,-35},{0,-40},{10,-35},{25,-20},{20,-10} };
+	setColor(putih);
+	fillPolygon(hidung23, 7, putih);
+	setColor(putih);
+	drawPolyline(hidung23, 7);
+
+	Point2D_t mulut27[4] = { {0,-40},{-20,-45},{0,-50},{20,-45} };
+	setColor(abu6);
+	fillPolygon(mulut27, 4, abu6);
+	setColor(putih);
+	drawPolyline(mulut27, 4);
+
+	Point2D_t mulut26[6] = { {-25,-20},{-35,-35},{-25,-40},{-20,-45},{0,-40},{-10,-35} };
+	setColor(abu9);
+	fillPolygon(mulut26, 6, abu9);
+	setColor(putih);
+	drawPolyline(mulut26, 6);
+
+	Point2D_t mulut29[6] = { {25,-20},{35,-35},{25,-40},{20,-45},{0,-40},{10,-35} };
+	setColor(abu9);
+	fillPolygon(mulut29, 6, abu9);
+	setColor(putih);
+	drawPolyline(mulut29, 6);
+
+	Point2D_t lubanghidung24[3] = { {-20,-20},{-10,-25},{-10,-20} };
+	setColor(hitam);
+	fillPolygon(lubanghidung24, 3, hitam);
+	setColor(hitam);
+	drawPolyline(lubanghidung24, 3);
+
+	Point2D_t lubanghidung25[3] = { {20,-20},{10,-25},{10,-20} };
+	setColor(hitam);
+	fillPolygon(lubanghidung25, 3, hitam);
+	setColor(hitam);
+	drawPolyline(lubanghidung25, 3);
+
+	Point2D_t bulu22[8] = { {-80,5},{-105,-60},{-50,-135},{-45,-130},{-25,-40},{-35,-35},{-45,-25},{-42,-15} };
+	setColor(abu9);
+	fillPolygon(bulu22, 8, abu9);
+	setColor(putih);
+	drawPolyline(bulu22, 8);
+
+	Point2D_t bulu31[8] = { {80,5},{105,-60},{50,-135},{45,-130},{25,-40},{35,-35},{45,-25},{42,-15} };
+	setColor(abu9);
+	fillPolygon(bulu31, 8, abu9);
+
+	Point2D_t bulu28[5] = { {-25,-40},{-45,-130},{0,-150},{0,-50},{-20,-45} };
+	setColor(abu9);
+	fillPolygon(bulu28, 5, abu9);
+	setColor(putih);
+	drawPolyline(bulu28, 5);
+
+	Point2D_t bulu28_2[5] = { {25,-40},{45,-130},{0,-150},{0,-50},{20,-45} };
+	setColor(abu9);
+	fillPolygon(bulu28_2, 5, abu9);
+	setColor(putih);
+	drawPolyline(bulu28_2, 5);
+}
+
+void display(void)
+{    
+	glClear(GL_COLOR_BUFFER_BIT);
+	userdraw();
+	glutSwapBuffers();
+}
+ 
+
+
+int main(int argc, char **argv)
+{
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+	glutInitWindowPosition(100, 100);
+	glutInitWindowSize(480, 480);
+	glutCreateWindow("Krisna Bayu Aditya Nurcahyo");
+	glClearColor(0, 0, 0, 0);
+	gluOrtho2D(-300., 300., -300., 300.);
+	glutIdleFunc(display);
+	glutDisplayFunc(display);
+	glutMainLoop();
+	return 0;
+}
