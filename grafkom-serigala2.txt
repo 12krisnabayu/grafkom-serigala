@@ -1,0 +1,253 @@
+Source Code :
+ 
+#include <GL/glut.h> 
+#include <math.h> 
+
+typedef struct 
+{ 
+	float r; 
+	float g; 
+	float b; 
+} color_t;
+
+typedef struct 
+{ 
+	float x, y; 
+} Point2D_t;
+
+void setColor(color_t col)
+{
+	glColor3f(col.r, col.g, col.b);
+}
+
+void drawPolyline(Point2D_t pnt[], int n) 
+{ 
+	int i;   
+	glBegin(GL_LINE_LOOP);    
+	for (i = 0; i < n; i++) { 
+		glVertex2f(pnt[i].x, pnt[i].y); 
+	}  
+	glEnd(); 
+}
+
+
+void gradatePolygon(Point2D_t pnt[], int n, color_t color[]) 
+{ 
+	int i;    
+	glBegin(GL_POLYGON);  
+	for (i = 0; i < n; i++) { 
+		setColor(color[i]);   
+		glVertex2f(pnt[i].x, pnt[i].y); 
+	}  
+	glEnd(); 
+}
+
+
+void userdraw() 
+{
+	color_t gradasiorange1[3] = { {1,0,0},{1,0.30,0},{1,0.45,0} };
+	color_t gradasiorange2[3] = { {1,0.30,0},{1,0.45,0},{1,0.60,0} };
+	color_t gradasiorange3[3] = { {1,0.45,0},{1,0.60,0},{1,0.75,0} };
+	color_t gradasiorange4[5] = { {1,0,0},{1,0.30,0},{1,0.45,0},{1,0.60,0},{1,0.75,0} };
+	color_t gradasiorange5[9] = { {1,0,0},{1,0.30,0},{1,0.45,0},{1,0.60,0},{1,0.75,0},{1,0.30,0},{1,0.45,0},{1,0.60,0},{1,0.75,0} };
+	color_t gradasihitam1[5] = { {0.07,0.08,0.09},{0.09,0.12,0.13},{0.05,0.04,0.04},{0.07,0.08,0.09},{0.09,0.12,0.13} };
+	color_t gradasikuning1[6] = { {0.97,0.32,0.04},{1,0.56,0.01},{0.98,0.84,0.03},{0.99,0.96,0.25},{0.98,0.84,0.03},{1,0.56,0.01} };
+	color_t gradasikuning2[4] = { {0.97,0.32,0.04},{1,0.56,0.01},{0.98,0.84,0.03},{0.99,0.96,0.25} };
+	color_t hitam = { 0,0,0 };
+
+	Point2D_t telinga1[4] = { {-140,142},{-128,70},{-116,96},{-111,150} };
+	gradatePolygon(telinga1, 4, gradasiorange1);
+	setColor(hitam);  
+	drawPolyline(telinga1, 4);
+
+	Point2D_t telinga1_2[4] = { {140,142},{128,70},{116,96},{111,150} };
+	gradatePolygon(telinga1_2, 4, gradasiorange1);
+	setColor(hitam);
+	drawPolyline(telinga1_2, 4);
+
+	Point2D_t telinga2[4] = { {-128,70},{-116,96},{-79,34},{-109,3} };
+	gradatePolygon(telinga2, 4, gradasiorange2);
+	setColor(hitam);
+	drawPolyline(telinga2, 4);
+
+	Point2D_t telinga2_2[4] = { {128,70},{116,96},{79,34},{109,3} };
+	gradatePolygon(telinga2_2, 4, gradasiorange2);
+	setColor(hitam);
+	drawPolyline(telinga2_2, 4);
+
+	Point2D_t telinga3[3] = { {-116,96},{-79,34},{-55,82} };
+	gradatePolygon(telinga3, 3, gradasiorange3);
+	setColor(hitam);
+	drawPolyline(telinga3, 3);
+
+	Point2D_t telinga3_2[3] = { {116,96},{79,34},{55,82} };
+	gradatePolygon(telinga3_2, 3, gradasiorange3);
+	setColor(hitam);
+	drawPolyline(telinga3_2, 3);
+
+	Point2D_t telinga4[4] = { {-116,96},{-111,150},{-39,85},{-55,83} };
+	gradatePolygon(telinga4, 4, gradasiorange2);
+	setColor(hitam);
+	drawPolyline(telinga4, 4);
+
+	Point2D_t telinga4_2[4] = { {116,96},{111,150},{39,85},{55,83} };
+	gradatePolygon(telinga4_2, 4, gradasiorange2);
+	setColor(hitam);
+	drawPolyline(telinga4_2, 4);
+
+	Point2D_t wajah5[4] = { {-55,82},{-39,85},{0,91},{-29,36} };
+	gradatePolygon(wajah5, 4, gradasiorange1);
+	setColor(hitam);
+	drawPolyline(wajah5, 4);
+
+	Point2D_t wajah5_2[4] = { {55,82},{39,85},{0,91},{29,36} };
+	gradatePolygon(wajah5_2, 4, gradasiorange1);
+	setColor(hitam);
+	drawPolyline(wajah5_2, 4);
+
+	Point2D_t wajah6[5] = { {0,91},{-29,36},{-41,-8},{-26,-26},{0,12} };
+	gradatePolygon(wajah6, 5, gradasiorange4);
+	setColor(hitam);
+	drawPolyline(wajah6, 5);
+
+	Point2D_t wajah6_2[5] = { {0,91},{29,36},{41,-8},{26,-26},{0,12} };
+	gradatePolygon(wajah6_2, 5, gradasiorange4);
+	setColor(hitam);
+	drawPolyline(wajah6_2, 5);
+
+	Point2D_t wajah6_21[9] = { {-117,-5},{-109,3},{-79,34},{-55,82},{-29,36},{-41,-8},{-55,-8},{-65,-12},{-94,-24} };
+	gradatePolygon(wajah6_21, 9, gradasiorange5);
+
+	Point2D_t wajah6_22[9] = { {117,-5},{109,3},{79,34},{55,82},{29,36},{41,-8},{55,-8},{65,-12},{94,-24} };
+	gradatePolygon(wajah6_22, 9, gradasiorange5);
+
+	Point2D_t mata7[6] = { {-65,-12},{-54,-28},{-36,-30},{-26,-26},{-41,-8},{-55,-8} };
+	gradatePolygon(mata7, 6, gradasihitam1);
+
+	Point2D_t mata7_2[6] = { {65,-12},{54,-28},{36,-30},{26,-26},{41,-8},{55,-8} };
+	gradatePolygon(mata7_2, 6, gradasihitam1);
+
+	Point2D_t wajah8_1[4] = { {-65,-12},{-54,-28},{-79,-63},{-94,-24} };
+	gradatePolygon(wajah8_1, 4, gradasiorange5);
+	setColor(hitam);
+	drawPolyline(wajah8_1, 4);
+
+	Point2D_t wajah8_2[4] = { {-54,-28},{-36,-30},{-43,-84},{-79,-63} };
+	gradatePolygon(wajah8_2, 4, gradasiorange5);
+	setColor(hitam);
+	drawPolyline(wajah8_2, 4);
+
+	Point2D_t wajah8_3[3] = { {-36,-30},{-26,-26},{-43,-84} };
+	gradatePolygon(wajah8_3, 3, gradasiorange5);
+	setColor(hitam);
+	drawPolyline(wajah8_3, 3);
+
+	Point2D_t wajah8_12[4] = { {65,-12},{54,-28},{79,-63},{94,-24} };
+	gradatePolygon(wajah8_12, 4, gradasiorange5);
+	setColor(hitam);
+	drawPolyline(wajah8_12, 4);
+
+	Point2D_t wajah8_22[4] = { {54,-28},{36,-30},{43,-84},{79,-63} };
+	gradatePolygon(wajah8_22, 4, gradasiorange5);
+	setColor(hitam);
+	drawPolyline(wajah8_22, 4);
+
+	Point2D_t wajah8_32[3] = { {36,-30},{26,-26},{43,-84} };
+	gradatePolygon(wajah8_32, 3, gradasiorange5);
+	setColor(hitam);
+	drawPolyline(wajah8_32, 3);
+
+	Point2D_t wajah9[3] = { {-26,-26},{-43,-84},{-20,-100} };
+	gradatePolygon(wajah9, 3, gradasiorange3);
+	setColor(hitam);
+	drawPolyline(wajah9, 3);
+
+	Point2D_t wajah9_2[3] = { {26,-26},{43,-84},{20,-100} };
+	gradatePolygon(wajah9_2, 3, gradasiorange3);
+	setColor(hitam);
+	drawPolyline(wajah9_2, 3);
+
+	Point2D_t wajah10[6] = { {0,12},{-26,-26},{-20,-100},{0,-95},{20,-100},{26,-26} };
+	gradatePolygon(wajah10, 6, gradasikuning1);
+	setColor(hitam);
+	drawPolyline(wajah10, 6);
+
+	Point2D_t wajah11_1[4] = { {-117,-5},{-132,-81},{-79,-63},{-94,-24} };
+	gradatePolygon(wajah11_1, 4, gradasikuning2);
+	setColor(hitam);
+	drawPolyline(wajah11_1, 4);
+
+	Point2D_t wajah11_2[4] = { {-79,-63},{-43,-84},{-43,-121},{-132,-81} };
+	gradatePolygon(wajah11_2, 4, gradasikuning2);
+	setColor(hitam);
+	drawPolyline(wajah11_2, 4);
+
+	Point2D_t wajah11_12[4] = { {117,-5},{132,-81},{79,-63},{94,-24} };
+	gradatePolygon(wajah11_12, 4, gradasikuning2);
+	setColor(hitam);
+	drawPolyline(wajah11_12, 4);
+
+	Point2D_t wajah11_22[4] = { {79,-63},{43,-84},{43,-121},{132,-81} };
+	gradatePolygon(wajah11_22, 4, gradasikuning2);
+	setColor(hitam);
+	drawPolyline(wajah11_22, 4);
+
+	Point2D_t hidung12[5] = { {-20,-100},{-16,-110},{-13,-122},{0,-126},{0,-95} };
+	gradatePolygon(hidung12, 5, gradasikuning1);
+	setColor(hitam);
+	drawPolyline(hidung12, 5);
+
+	Point2D_t hidung12_2[5] = { {20,-100},{16,-110},{13,-122},{0,-126},{0,-95} };
+	gradatePolygon(hidung12_2, 5, gradasikuning1);
+	setColor(hitam);
+	drawPolyline(hidung12_2, 5);
+
+	Point2D_t wajah13_1[5] = { {-43,-84},{-43,-121},{-13,-122},{-16,-110},{-20,-100} };
+	gradatePolygon(wajah13_1, 5, gradasikuning1);
+	setColor(hitam);
+	drawPolyline(wajah13_1, 5);
+
+	Point2D_t wajah13_2[6] = { {-43,-121},{-13,-122},{0,-126},{0,-137},{-19,-137},{-31,-137} };
+	gradatePolygon(wajah13_2, 6, gradasikuning1);
+	setColor(hitam);
+	drawPolyline(wajah13_2, 6);
+
+	Point2D_t wajah13_12[5] = { {43,-84},{43,-121},{13,-122},{16,-110},{20,-100} };
+	gradatePolygon(wajah13_12, 5, gradasikuning1);
+	setColor(hitam);
+	drawPolyline(wajah13_12, 5);
+
+	Point2D_t wajah13_22[6] = { {43,-121},{13,-122},{0,-126},{0,-137},{19,-137},{31,-137} };
+	gradatePolygon(wajah13_22, 6, gradasikuning1);
+	setColor(hitam);
+	drawPolyline(wajah13_22, 6);
+
+	Point2D_t mulut14[4] = { {-19,-137},{0,-147},{19,-137},{0,-137} };
+	gradatePolygon(mulut14, 4, gradasihitam1);
+	setColor(hitam);
+	drawPolyline(mulut14, 4);
+
+}
+
+void display(void) 
+{  
+	glClear(GL_COLOR_BUFFER_BIT);  
+	userdraw();  
+	glutSwapBuffers(); 
+} 
+ 
+
+int main(int argc, char **argv) 
+{
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB); 
+	glutInitWindowPosition(100, 100);
+	glutInitWindowSize(480,480);
+	glutCreateWindow("Krisna Bayu Aditya Nurcahyo");
+	glClearColor(0.39,0.39,0.39,0.39);
+	gluOrtho2D(-300., 300., -300., 300.);
+	glutIdleFunc(display); 
+	glutDisplayFunc(display); 
+	glutMainLoop(); 
+	return 0; 
+}
